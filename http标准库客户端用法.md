@@ -176,7 +176,7 @@ func main() {
   func (v Values) Encode() string
   ```
 
-#### HEAD请求
+#### HEAD 请求
 
 示例：
 
@@ -277,22 +277,22 @@ type Request struct {
   func (h Header) has(key string) bool
   ```
 
-### Form
+#### Form
 
 - `Form`的类型为：`url.Values`
 
 - `Form`包含了被解析的表单数据，包括`URL`请求字段，以及`PATCH`、`POST`和`PUT`的表单数据。
 - 调用`ParseForm`后，`Form`才会包含客户端传送给服务端的表单数据
 
-### PostForm
+#### PostForm
 
 - 与`Form`不同的是，该字段不包含`URL`请求数据，其他都相同
 
-### MultipartForm
+#### MultipartForm
 
 - `MultipartForm`包含被上传的文件，执行`ParseMultipartForm`后该文件可读
 
-### ParseForm
+#### ParseForm
 
 - `ParseForm`解析`URL`请求参数，并且放入`Form`
 
