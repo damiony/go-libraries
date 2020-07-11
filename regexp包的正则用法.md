@@ -4,7 +4,7 @@
 
 如果想要利用正则表达式直接进行模式匹配，比较常见的是利用`regexp.Match`方法、`regexp.MatchString`方法和`Regexp`类型。
 
-### regexp.Match
+### `regexp.Match`
 
 定义：
 
@@ -21,7 +21,7 @@ matched, _ := regexp.Match("b", []byte("hello golang"))
 fmt.Println(matched) // false
 ```
 
-### regexp.MatchString
+### `regexp.MatchString`
 
 定义：
 
@@ -62,11 +62,11 @@ func Compile(expr string) (*Regexp, error)
 
 该方法和`Compile`很类似，但是如果编译发生错误，不会返回错误，而是直接`panic`。
 
-### Regexp常见的匹配方法
+## Regexp常见的匹配方法
 
 `Regexp`包含很多匹配方法，下面将列举说明较为常见的。
 
-#### Find
+### `Find`
 
 该方法返回第一个匹配的`[]byte`，定义为：
 
@@ -82,7 +82,7 @@ match := re.Find([]byte("hello golang"))
 fmt.Println(string(match)) // a
 ```
 
-#### FindAll
+### `FindAll`
 
 该方法返回由匹配结果组成的`slice`，定义为：
 
@@ -112,7 +112,7 @@ for _, m := range match {
 // la
 ```
 
-#### FindString
+### `FindString`
 
 该方法返回匹配的字符串，定义为：
 
@@ -128,7 +128,7 @@ match := re.FindString("hello world, hello golang")
 fmt.Println(match) // ll
 ```
 
-#### FindAllString
+### `FindAllString`
 
 定义为：
 
@@ -152,7 +152,7 @@ for _, m := range match {
 // la
 ```
 
-#### FindIndex
+### `FindIndex`
 
 该方法第一个匹配结果在原始字符串中的位置，定义为：
 
@@ -170,7 +170,7 @@ match := re.FindIndex([]byte("hello world, hello golang"))
 fmt.Println(match) // [2 4]
 ```
 
-#### FinAllIndex
+### `FinAllIndex`
 
 该方法是`FindIndex`的`all`版本，它根据`n`参数，决定返回结果的个数。具体定义为：
 
@@ -191,7 +191,7 @@ for _, m := range match {
 // [2 4] [9 11] [15 17] [21 23]
 ```
 
-#### FindStringIndex
+### `FindStringIndex`
 
 该方法的作用同`FindIndex`，只是传入的参数类型不同，定义为：
 
@@ -199,7 +199,7 @@ for _, m := range match {
 func (re *Regexp) FindStringIndex(s string) (loc []int)
 ```
 
-#### FindAllStringIndex
+### `FindAllStringIndex`
 
 该方法是`FindStringIndex`的`all`版本。具体定义为：
 
@@ -207,7 +207,7 @@ func (re *Regexp) FindStringIndex(s string) (loc []int)
 func (re *Regexp) FindAllStringIndex(s string, n int) [][]int
 ```
 
-#### FindStringSubmatch
+### `FindStringSubmatch`
 
 该方法返回匹配的字符串组，定义为：
 
@@ -229,7 +229,7 @@ fmt.Printf("%q\n", re.FindStringSubmatch("aaabbc"))
 ["aaabbc", "aaa", "c"]
 ```
 
-#### FindAllStringSubmatch
+### `FindAllStringSubmatch`
 
 该方法是`FindStringSubmatch`的`all`版本，具体实现为：
 
@@ -237,7 +237,7 @@ fmt.Printf("%q\n", re.FindStringSubmatch("aaabbc"))
 func (re *Regexp) FindAllStringSubmatch(s string, n int) [][]string
 ```
 
-#### Match
+### `Match`
 
 该方法判断`byte slice`是否匹配正则表达式，定义：
 
@@ -253,7 +253,7 @@ match := re.Match([]byte("hello everyone"))
 fmt.Println(match) // true
 ```
 
-#### MatchString
+### `MatchString`
 
 判断字符串是否匹配正则表达式，定义
 
@@ -269,7 +269,7 @@ match := re.MatchString("hello everyone")
 fmt.Println(match) // true
 ```
 
-#### ReplaceAll
+### `ReplaceAll`
 
 定义为：
 
@@ -287,7 +287,7 @@ match := re.ReplaceAll([]byte("hello everyone"), []byte("hi!"))
 fmt.Println(string(match)) // hi! everyone
 ```
 
-#### ReplaceAllString
+### `ReplaceAllString`
 
 定义为：
 
@@ -305,7 +305,7 @@ match := re.ReplaceAllString("hello everyone", "hi!")
 fmt.Println(match) // hi! everyone
 ```
 
-#### Split
+### `Split`
 
 定义为：
 
