@@ -7,12 +7,13 @@
 `Element`的定义为：
 
 ```go
-// Element is an element of a linked list.
 type Element struct {
-    // 后一个、前一个链表元素指针
+	// 后一个、前一个链表元素指针
 	next, prev *Element
+	
 	// 元素所属链表的指针
 	list *List
+	
 	// 元素的值
 	Value interface{}
 }
@@ -134,7 +135,7 @@ func (l *List) MoveToFront(e *Element)
 
 ## 删除
 
-(1) 删除链表元素。
+(1) 删除链表元素，可以看一下删除时避免内存泄露的做法。
 
 ```go
 func (l *List) Remove(e *Element) interface{}
@@ -147,4 +148,3 @@ func (l *List) Remove(e *Element) interface{}
 ```go
 func (l *List) Len() int
 ```
-
